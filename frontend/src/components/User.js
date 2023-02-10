@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 
 const UserItem = ({user}) => {    // for single user
@@ -20,7 +20,6 @@ const UserItem = ({user}) => {    // for single user
 
 
 const UserList = ({users}) => {    // for list of users
-
     return (
         <table>
             <th>
@@ -32,15 +31,20 @@ const UserList = ({users}) => {    // for list of users
             <th>
                 Birthday year
             </th>
-            {users.map((user) => <UserItem user=(user)/> )}
-                // users - iterable list object
-                // map takes users from object one-by-one > user
-                // we route the user to UserItem
-                // for those objects from list where  user == user
-                // (user) передается в функцию (user)
-                // UserItem User - вызывает верхнюю функцию с параметром
+            {users.map((user) => <UserItem user={user} /> )}
+
         </table>
     )
 }
 
 export default UserList
+
+/*
+                 users - iterable list object
+                 map takes users from object one-by-one > user
+                 we route the user to UserItem
+                 for those objects from list where  user == user
+                 (user) передается в функцию (user)
+                 UserItem User - вызывает верхнюю функцию с параметром
+*/
+

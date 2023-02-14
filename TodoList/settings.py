@@ -23,6 +23,7 @@ SECRET_KEY = 'django-insecure-0-#vx(lq!er+npm@1safyo43o=hzips93)*#g)god@y(1%p022
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# PYCHARM_DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'users',
+    'authors',
 ]
 
 MIDDLEWARE = [

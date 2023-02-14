@@ -16,14 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from rest_framework.routers import DefaultRouter  # this helps to define entry points
+from rest_framework.routers import DefaultRouter, SimpleRouter  # this helps to define entry points
 from users.views import UserModelViewSet
+from authors.views import AuthorModelViewSet, BookModelViewSet, BiographyModelViewSet
 
 router = DefaultRouter()  # initiate the class
 
 # register entry point to model
 # entry point = users , that we had imported
 router.register('users', UserModelViewSet)
+router.register('authors', AuthorModelViewSet)
+router.register('biography', BiographyModelViewSet)
+router.register('books', BookModelViewSet)
 # router.register('books', BookModelViewSet)
 
 urlpatterns = [

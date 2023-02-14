@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import logo from './logo.svg';
 import './App.css';
-import UserList from './components/User.js'    // from User.js
+import AuthorList from './components/Author.js'    // from User.js
 
 class App extends React.Component {
 
@@ -10,17 +10,17 @@ class App extends React.Component {
     constructor(props)  {           //    constructor props - set settings
         super(props)                // re-define parent settings
         this.state = {              // state (variables)  of App component
-        'users':[]
+        'authors':[]
         }
     }
 
 
     componentDidMount(){                    // монтирует данные на нашу страницу
 
-        axios.get('http://127.0.0.1:8000/api/users/').then(response => {
+        axios.get('http://127.0.0.1:8000/api/authors/').then(response => {
             this.setState(                                        // создаем состояние объекта
                 {
-                    'users': response.data
+                    'authors': response.data
                 }
                 )
             }
@@ -32,7 +32,7 @@ class App extends React.Component {
             <div>
 //            Main App
 
-             < UserList users={this.state.users} />
+             < AuthorList authors={this.state.authors} />
             </div>
         );
     }

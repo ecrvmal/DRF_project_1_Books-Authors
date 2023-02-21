@@ -1,12 +1,10 @@
-import React from "react";
+import React from "react"
 import {useParams} from "react-router-dom";
 
 
+const BookItem = ({book}) => {    // for single user
 
-const BookItem = ({book,authors}) => {
-console.log("books")
-
-      return (
+    return (
         <tr>
             <td>
                 {book.id}
@@ -15,40 +13,35 @@ console.log("books")
                 {book.name}
             </td>
             <td>
-                {book.authors.map((authorId) =>{
-                    let author = authors.find((author) => author.id === authorId )
-                    if(author){
-                        return author.last_name}
-                })}
+                {book.authors}
             </td>
         </tr>
     )
-
 }
 
-const BookListAuthors = ({books,authors}) => {
-    console.log("books")
-    let {id} = useParams()
 
-    console.log()
-
-    let filter_item = books.filter((book => book.authors.includes(parseInt(id))))
-
-    return(
+const BookListAuthors = ({books, authors}) => {    // for list of users
+     console.log('BookAuthors.js')
+    console.log(books)
+        console.log(authors)
+            let {id} = useParams()
+    console.log(id)
+    return (
         <table>
-            <th>
-                ID
-            </th>
-               <th>
-                Name
-            </th>
-               <th>
-                Author
-            </th>
-            {filter_item.map((book) => <BookItem book={book} authors={authors}/> )}
+           <tr>
+                <th Book ID />
+            </tr>
+            <tr>
+                <th Book name/>
+            </tr>
+            <tr>
+                <th Authors/>
+            </tr>
+
+            {books.map((book) => <BookItem book={book} /> )}
+
         </table>
     )
-
 }
 
 export default BookListAuthors

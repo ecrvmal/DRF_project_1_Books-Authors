@@ -45,11 +45,11 @@ class App extends React.Component {
                         <ul>
                             <li>
                           {/* <Link to='/'> Authors</Link>} */}
-                              <a href='/'> Authors </a>
+                              <Link to='/'> Authors </Link>
                             </li>
                             <li>
                                 {/* <Link to='/books'>Books</Link>} */}
-                                <a href='/books'>Books</a>
+                                <Link to='/books'>Books</Link>
                             </li>
                         </ul>
                     </nav>
@@ -57,9 +57,27 @@ class App extends React.Component {
                         <Route exact path="/" component={() => <AuthorList authors={this.state.authors}/>}/>
                         <Route exact path="/books" component={() =>  <BookList books={this.state.books}/>}/>
 
-                        <Route path='/author/:id '>
-                            <BookListAuthors  books={this.state.books} />
+                          {/*
+                        <Route path='/author/:id'>
+                            console.log('App.js')
+                            console.log(f'{this.state.books}')
+                            console.log(f'{this.state.authors}')
+                            <BookListAuthors books={this.state.books} authors={this.state.authors}/>
                         </Route>
+                         */}
+
+                        <Route path='/author/:id'>
+                            <BookListAuthors books={this.state.books} authors={this.state.authors}/>
+                        </Route>
+
+                        {/*
+                        <BookListAuthors  books={this.state.books} authors={this.state.authors}/>
+                        */}
+
+
+
+
+
                         {/*  /:id  отлавливается из BookAuthor.js через useParams  */}
 
                         <Redirect from='/book' to='/books' />

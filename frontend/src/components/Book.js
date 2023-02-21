@@ -20,6 +20,8 @@ const BookItem = ({book}) => {    // for single user
 
 
 const BookList = ({books}) => {    // for list of users
+     console.log('Book.js')
+    console.log(books)
     return (
         <table>
            <tr>

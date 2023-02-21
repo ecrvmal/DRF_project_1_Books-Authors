@@ -4,7 +4,6 @@ import {useParams} from "react-router-dom";
 
 
 const BookItem = ({book,authors}) => {
-console.log("books")
 
       return (
         <tr>
@@ -27,9 +26,9 @@ console.log("books")
 }
 
 const BookListAuthors = ({books,authors}) => {
-    console.log("books")
+console.log(books)
+console.log(authors)
     let {id} = useParams()
-
     console.log()
 
     let filter_item = books.filter((book => book.authors.includes(parseInt(id))))

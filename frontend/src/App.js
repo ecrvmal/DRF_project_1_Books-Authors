@@ -57,9 +57,25 @@ class App extends React.Component {
                         <Route exact path="/" component={() => <AuthorList authors={this.state.authors}/>}/>
                         <Route exact path="/books" component={() =>  <BookList books={this.state.books}/>}/>
 
-                        <Route path='/author/:id '>
-                            <BookListAuthors  books={this.state.books} />
+                          {/*  for debug
+                        <Route path='/author/:id'>
+                            console.log('App.js')
+                            console.log(f'{this.state.books}')
+                            console.log(f'{this.state.authors}')
                         </Route>
+                         */}
+
+                        {/*   Alternative
+                        <Route path='/author/:id'>
+                            <BookListAuthors books={this.state.books} authors={this.state.authors}/>
+                        </Route>
+                         */}
+
+                        <Route exact path="/author/:id" component={
+                            () =>  <BookListAuthors books={this.state.books} authors={this.state.authors}/>}/>
+
+
+
                         {/*  /:id  отлавливается из BookAuthor.js через useParams  */}
 
                         <Redirect from='/book' to='/books' />

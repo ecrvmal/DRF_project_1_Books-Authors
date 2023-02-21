@@ -22,15 +22,15 @@ const AuthorItem = ({author}) => {    // for single user
 const AuthorList = ({authors}) => {    // for list of users
     return (
         <table>
-            <th>
-                First name
-            </th>
-            <th>
-                Last name
-            </th>
-            <th>
-                Birthday year
-            </th>
+            <tr>
+                <th First name />
+            </tr>
+            <tr>
+                <th Last name />
+            </tr>
+            <tr>
+                <th Birthday year />
+            </tr>
             {authors.map((author) => <AuthorItem author={author} /> )}
 
         </table>
@@ -38,13 +38,3 @@ const AuthorList = ({authors}) => {    // for list of users
 }
 
 export default AuthorList
-
-/*
-                 users - iterable list object
-                 map takes users from object one-by-one > user
-                 we route the user to UserItem
-                 for those objects from list where  user == user
-                 (user) передается в функцию (user)
-                 UserItem User - вызывает верхнюю функцию с параметром
-*/
-

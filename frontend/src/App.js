@@ -44,17 +44,21 @@ class App extends React.Component {
                     <nav>
                         <ul>
                             <li>
-                                <Link to='/'> Authors</Link>
+                          {/* <Link to='/'> Authors</Link>} */}
+                              <a href='/'> Authors </a>
                             </li>
                             <li>
-                                <Link to='/books'>Books</Link>
+                                {/* <Link to='/books'>Books</Link>} */}
+                                <a href='/books'>Books</a>
                             </li>
                         </ul>
                     </nav>
-                    <div>
+                    <Switch>
                         <Route exact path="/" component={() => <AuthorList authors={this.state.authors}/>}/>
                         <Route exact path="/books" component={() =>  <BookList books={this.state.books}/>}/>
-                    </div>
+
+                        <Route component={NotFound404}/>
+                    </Switch>
                 </BrowserRouter>
             </div>
         );

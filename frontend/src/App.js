@@ -40,7 +40,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <BrowserRouter>
+                <HashRouter>
                     <nav>
                         <ul>
                             <li>
@@ -81,7 +81,7 @@ class App extends React.Component {
                         <Redirect from='/book' to='/books' />
                         <Route component={NotFound404}/>
                     </Switch>
-                </BrowserRouter>
+                </HashRouter>
             </div>
         );
     }

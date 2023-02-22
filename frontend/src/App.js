@@ -40,16 +40,16 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <HashRouter>
+                <BrowserRouter>
                     <nav>
                         <ul>
                             <li>
                           {/* <Link to='/'> Authors</Link>} */}
-                              <Link to='/'> Authors </Link>
+                              <a href='/'> Authors </a>
                             </li>
                             <li>
-                                {/* <Link to='/books'>Books</Link>} */}
-                                <Link to='/books'>Books</Link>
+                                {/* <Link to href='/books'>Books</Link>} */}
+                                <a href='/books'>Books</a>
                             </li>
                         </ul>
                     </nav>
@@ -81,7 +81,7 @@ class App extends React.Component {
                         <Redirect from='/book' to='/books' />
                         <Route component={NotFound404}/>
                     </Switch>
-                </HashRouter>
+                </BrowserRouter>
             </div>
         );
     }

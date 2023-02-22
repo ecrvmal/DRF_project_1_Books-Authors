@@ -8,7 +8,7 @@ const AuthorItem = ({author}) => {    // for single user
         <tr>
             <td>
              {/*   {author.first_name}  */}
-             <Link to={`/author/${author.id}`}> {author.first_name}</Link>
+             <a href={`/author/${author.id}`}> {author.first_name}</a>
             </td>
             <td>
                 {author.last_name}

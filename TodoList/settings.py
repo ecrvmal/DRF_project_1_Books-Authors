@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'users',
     'authors',
     'django_filters',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -62,11 +63,23 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'TodoList.urls'
 # ROOT_URLCONF = 'authors.url_examples'
 
+# from rest_framework.permissions import DjangoModelPermissionsOrAnonReadOnly
+# from rest_framework.authentication import BasicAuthentication
+
 REST_FRAMEWORK = {
-    # 'DEFAULT_RENDERER_CLASSES': [
-    #     'rest_framework.renderers.JSONRenderer',
-    #     # 'rest_framework.renderers.BrowsableAPIRenderer',
-    # ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
     #     'DEFAULT_PARSER_CLASSES': [
     #         'rest_framework.parsers.JSONParser',
     #     ]

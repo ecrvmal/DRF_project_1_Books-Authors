@@ -19,6 +19,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter, SimpleRouter  # this helps to define entry points
 from users.views import UserModelViewSet
 from authors.views import AuthorModelViewSet, BookModelViewSet, BiographyModelViewSet
+from rest_framework.authtoken import views
 
 router = DefaultRouter()  # initiate the class
 
@@ -34,4 +35,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),  # connect  path = api/    router
+    path('api-token-auth/', views.obtain_auth_token)
 ]

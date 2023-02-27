@@ -32,4 +32,4 @@ export default function Navbar({navbarItems}) {
     )
 }
 
-// export default Navbar
+export default Navbar

@@ -24,15 +24,15 @@ const BookList = ({books}) => {    // for list of users
     console.log(books)
     return (
         <table>
-           <tr>
-                <th Book ID />
-            </tr>
-            <tr>
-                <th Book name/>
-            </tr>
-            <tr>
-                <th Authors/>
-            </tr>
+           <th>
+                Book ID
+            </th>
+            <th>
+                Book name
+            </th>
+            <th>
+                Authors
+            </th>
 
             {books.map((book) => <BookItem book={book} /> )}
 

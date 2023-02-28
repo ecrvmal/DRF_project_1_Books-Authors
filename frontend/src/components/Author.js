@@ -24,15 +24,15 @@ const AuthorItem = ({author}) => {    // for single user
 const AuthorList = ({authors}) => {    // for list of users
     return (
         <table>
-            <tr>
-                <th First name />
-            </tr>
-            <tr>
-                <th Last name />
-            </tr>
-            <tr>
-                <th Birthday year />
-            </tr>
+            <th>
+                First name
+            </th>
+            <th>
+                Last name
+            </th>
+            <th>
+                Birthday year
+            </th>
             {authors.map((author) => <AuthorItem author={author} /> )}
 
         </table>

@@ -35,7 +35,6 @@ router.register('users', UserModelViewSet)
 router.register('authors', AuthorModelViewSet)
 router.register('biography', BiographyModelViewSet)
 router.register('books', BookModelViewSet)
-# router.register('books', BookModelViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

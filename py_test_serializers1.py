@@ -17,18 +17,18 @@ class AuthorSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
         instance.name = validated_data.get('name', instance.name)
-        instance.birthday_year = validated_data.get('birthday_year', instance.birtday_year)
+        instance.birthday_year = validated_data.get('birthday_year', instance.birthday_year)
         return instance
 
     # Validation of single field
-    def validate_birthday_year(self,value):
-        if value <5:
-            rise serializers.ValidationError('Год рождения не может быть отрицательным')
+    def validate_birthday_year(self, value):
+        if value < 5:
+            raise serializers.ValidationError('Год рождения не может быть отрицательным')
         return value
 
     # Validation of all fields
     def validate(self, attrs):
-        if attrs['name']== 'Толстой' and attrs['birthday_year'] != 1828:
+        if attrs['name'] != 'Толстой' and attrs['birthday_year'] != 1828:
             raise serializers.ValidationError('Нвверный год рождения Толстого ')
         return attrs
 
@@ -36,7 +36,6 @@ class AuthorSerializer(serializers.Serializer):
 def start():  # dict > object
     author = Author('Толстой', 1828)
     serializer = AuthorSerializer(author)
-
 
     # object  > bytes
     renderer = JSONRenderer()
@@ -57,19 +56,27 @@ def start():  # dict > object
     print(author)
 
     # Обновление всех данных   create : dict > object > save
-    data = {'name': 'Пушкин', 'Birthday_year': 1880}  # делаем словарь
+    data = {'name': 'Пушкин', 'birthday_year': 1880}  # делаем словарь
     serializer = AuthorSerializer(author, data=data)  # передаем новый словарь data, обновляем объект author ,
-    serializer.is_valid()  # обязательно вызываем, нужно его проверить
-    author = serializer.save()  # когда вызываем save вызывается функция обновления def update(self, instance, validated_data):
-    # возвращается обновленный объект
     print(author)
+    if serializer.is_valid():  # обязательно вызываем, нужно его проверить
+        author = serializer.save()  # когда вызываем save вызывается функция
+        # обновления def update(self, instance, validated_data):
+        # возвращается обновленный объект
+        print(author)
+    else:
+        print(serializer.errors)
 
-    # Обновление частичное     updare : dict > object > save
-    data = {'birthday_year': 10}
-    serializer = AuthorSerializer(author, data=data, partitial=True)
-    serializer.is_valid()
-    author = serializer.save()
-    print(f'({author} {author.birthday_year})')
+    # # Обновление частичное     updare : dict > object > save
+    # data = {'birthday_year': 10}
+    # serializer = AuthorSerializer(author, data=data, partial=True)
+    # if serializer.is_valid():  # обязательно вызываем, нужно его проверить
+    #     author = serializer.save()  # когда вызываем save вызывается функция
+    #     # обновления def update(self, instance, validated_data):
+    #     # возвращается обновленный объект
+    #     print(author)
+    # else:
+    #     print(f'({author} {author.birthday_year})')
 
     # Проверка 1-го поля
     data = {'birthday_year': 1}
@@ -80,16 +87,14 @@ def start():  # dict > object
     else:
         print(serializer.errors)
 
-    # Проверка всех полей
-    data = {'name': 'Толстой', 'birthday_year': 2000}
-    serializer = AuthorSerializer(author, data=data)
-    if serializer.is_valid():
-        author = serializer.save()
-        print(author)
-    else:
-        print(serializer.errors)
-
-
+    # # Проверка всех полей
+    # data = {'name': 'Толстой', 'birthday_year': 2000}
+    # serializer = AuthorSerializer(author, data=data)
+    # if serializer.is_valid():
+    #     author = serializer.save()
+    #     print(author)
+    # else:
+    #     print(serializer.errors)
 
 
 start()

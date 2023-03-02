@@ -11,7 +11,10 @@ class AuthorModelSerializer(ModelSerializer):
         # fields = ('first_name', 'last_name')
 
 
-class BiographyModelSerializer(HyperlinkedModelSerializer):
+# class BiographyModelSerializer(HyperlinkedModelSerializer):
+
+
+class BiographyModelSerializer(ModelSerializer):
     class Meta:
         model = Biography
         fields = '__all__'

@@ -14,7 +14,7 @@ class BiographySerializer(serializers.Serializer):
 
 class BookSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=128)  # text
-    author = AuthorSerializer(many=True)  # object
+    authors = AuthorSerializer(many=True)  # object
 
 
 author1 = Author('Грин', 1880)

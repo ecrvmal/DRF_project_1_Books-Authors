@@ -8,7 +8,7 @@ class Author(models.Model):
     birthday_year = models.PositiveIntegerField()
 
     def __str__(self):
-        return f'({self.first_name} {self.last_name} {self.birthday_year} )'
+        return f'{self.first_name} | {self.last_name} | {self.birthday_year} '
 
 
 class Biography(models.Model):

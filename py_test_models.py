@@ -4,7 +4,8 @@ class Author:
         self.name = name
         self.birthday_year = birthday_year
 
-    def __str__(self):
+    # def __str__(self):
+    #     return f'{[self.name, self.birthday_year]!r}'
 
 
 class Biography:

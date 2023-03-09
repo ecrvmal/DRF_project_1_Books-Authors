@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'users',
     'authors',
     'django_filters',
+    'userapp',
 ]
 
 MIDDLEWARE = [
@@ -93,6 +94,8 @@ REST_FRAMEWORK = {
     # ],
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     # 'PAGE_SIZE': 2,
+
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
 }
 
 TEMPLATES = [

@@ -14,8 +14,8 @@ from users.views import UserModelViewSet
 from authors.views import AuthorModelViewSet, BookModelViewSet, BiographyModelViewSet
 from userapp.views import UserListAPIView
 
-# app_name = 'users'
-app_name = 'userapp'
+app_name = 'users'
+# app_name = 'userapp'
 
 urlpattern = []
 
@@ -30,19 +30,14 @@ router.register('books', BookModelViewSet)
 
 # for lesson 9
 #
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-#     path('api-auth/', include('rest_framework.urls')),
-#     path('api/', include(router.urls)),  # connect  path = api/    router
-#     path('api-token-auth/', views.obtain_auth_token),  # for Token auth
-#     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # for JWT
-#     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # for JWT
-#     # path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
-#     re_path(r'^api/(?P<version>\d\.\d)/users/$', UserListAPIView.as_view()),
-#
-# ]
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', UserListAPIView.as_view()),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include(router.urls)),  # connect  path = api/    router
+    path('api-token-auth/', views.obtain_auth_token),  # for Token auth
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # for JWT
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # for JWT
+    # path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    re_path(r'^api/(?P<version>\d\.\d)/users/$', UserListAPIView.as_view()),
+
 ]

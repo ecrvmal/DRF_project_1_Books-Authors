@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt.token_blacklist',
+    'graphene_django',
     'drf_yasg',
     # my
     'users',
@@ -53,6 +54,10 @@ INSTALLED_APPS = [
     'django_filters',
     'painters',
 ]
+
+GRAPHENE = {
+    'SCHEMA': 'TodoList.schema.schema'  # the route to schema file
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

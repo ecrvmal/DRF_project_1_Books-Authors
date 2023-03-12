@@ -48,7 +48,7 @@ class AuthorMutation(graphene.Mutation):
     author = graphene.Field(AuthorType)
 
     @classmethod
-    def mutate(clscls, route, info, birthday_year, id):
+    def mutate(cls, route, info, birthday_year, id):
         author = Author.objects.get(pk=id)
         author.birthday_year = birthday_year
         author.save()

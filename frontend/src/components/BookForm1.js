@@ -30,10 +30,15 @@ class BookForm extends React.Component {
                 <div className = {"form-group"}>
                     <label form={"author"}>Author</label>
 
+               {/*  below : to enter autor name from list */}
                     <select name="author" className="form-control" onChange={(event)=>this.handleChange(event)}>
-                        {this.props.authors.map((item) => <option value={item.id}> {item.first_name}</option>)}
+                        {this.props.authors.map(item) => {<option value={item.id}> {item.name}</option>})}
                     </select>
 
+               {/*  below : to enter any digit as autor id
+                    <input type="number" className="form-control"
+                        name="author" value={this.state.author}
+                        onChange={(event)=>this.handleChange(event) }/>    */}
                 </div>
                 <input type="submit" className="btn btn-primary"
                         name="author" value="Save" />

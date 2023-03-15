@@ -40,7 +40,8 @@ class App extends React.Component {
     createBook(name, author) {
         console.log(name,author)
         const headers = this.get_headers()
-        const data = {name: name, authors: [Number(author)]}
+        console.log('headers ',headers)
+        const data = {'name': name, 'authors': [Number(author)]}
         console.log("data = ", data)
         axios.post('http://127.0.0.1:8000/api/books/', data, {headers: headers})
             .then(response =>{
@@ -152,7 +153,7 @@ class App extends React.Component {
                             deleteBook={(id)=> this.deleteBook(id)} />}/>  {/*  get id from form and pass id to function deleteBook */}
 
 
-                        <Route exact path="/books/create" component={() =>  <BookForm  createBook={(name, author) => this.createBook(name,author)} />}/>
+                        <Route exact path="/books/create" component={() =>  <BookForm authors={this.state.authors} createBook={(name, author) => this.createBook(name,author)} />}/>
 
                       {/*   <Route exact path="/books" component={() =>  <BookList books={this.state.books} />}/>     */}
 

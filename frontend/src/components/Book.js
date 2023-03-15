@@ -1,7 +1,8 @@
 import React from "react"
+import {Link} from "react-router-dom"
 
 
-const BookItem = ({book}) => {    // for single user
+const BookItem = ({book, deleteBook}) => {    // for single user
 
     return (
         <tr>
@@ -14,29 +15,38 @@ const BookItem = ({book}) => {    // for single user
             <td>
                 {book.authors}
             </td>
+            <td>
+            <button onClick={()=> deleteBook(book.id)}type='button'>Delete</button>
+            </td>
         </tr>
     )
 }
 
 
-const BookList = ({books}) => {    // for list of users
+const BookList = ({books, deleteBook}) => {    // for list of users
      console.log('Book.js')
     console.log(books)
     return (
-        <table>
-           <th>
-                Book ID
-            </th>
-            <th>
-                Book name
-            </th>
-            <th>
-                Authors
-            </th>
+        <div>
+            <table>
+               <th>
+                    Book ID
+                </th>
+                <th>
+                    Book name
+                </th>
+                <th>
+                    Authors
+                </th>
 
-            {books.map((book) => <BookItem book={book} /> )}
+                {books.map((book) => <BookItem book={book} deleteBook={deleteBook} /> )}
 
-        </table>
+            </table>
+
+            {/* <Link to='/books/create'>Create</Link>   */}
+                <a href='/books/create'>Create</a>
+
+        </div>
     )
 }
 

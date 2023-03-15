@@ -39,11 +39,13 @@ class App extends React.Component {
 
     createBook(name, author) {
         console.log(name,author)
-        const headers = this.get_headers()
-        console.log('headers ',headers)
-        const data = {'name': name, 'authors': [Number(author)]}
-        console.log("data = ", data)
-        axios.post('http://127.0.0.1:8000/api/books/', data, {headers: headers})
+        let headers = this.get_headers()
+//        console.log('headers ',headers)
+        const data = {name: name, authors: [author]}
+        headers["Content-Type"]="application/json"
+//        console.log('headers ',headers)
+//        console.log("data = ", data)
+        axios.post(`http://127.0.0.1:8000/api/books/`, data, {headers})
             .then(response =>{
             let new_book = response.data
             const author = this.state.books.filter((item) => item.id === new_book.author)[0]

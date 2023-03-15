@@ -1,6 +1,7 @@
 from rest_framework.serializers import HyperlinkedModelSerializer
 from rest_framework.serializers import ModelSerializer
 from .models import Author, Biography, Book
+from rest_framework import serializers
 
 
 class AuthorModelSerializer(ModelSerializer):

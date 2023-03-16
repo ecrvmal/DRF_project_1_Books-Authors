@@ -30,7 +30,7 @@ class BookForm extends React.Component {
                 <div className = {"form-group"}>
                     <label form={"author"}>Author</label>
 
-               {/*  below : to enter any digit as autor id  */}
+               {/*  below : to enter author name from list  */}
                     <select name="author" className="form-control" onChange={(event)=>this.handleChange(event)}>
                         {this.props.authors.map((item) => <option value={item.id}> {item.first_name}</option>)}
                     </select>

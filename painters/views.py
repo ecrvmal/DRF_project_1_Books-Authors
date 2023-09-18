@@ -26,6 +26,14 @@ class PaintersViewSet(viewsets.ModelViewSet):
     serializer_class = PaintersSerializer
 
     def get_serializer_class(self):
+        """
+        The get_serializer_class function is a helper function that allows you to dynamically return the correct serializer class based on the request.
+        In this case, we are checking if the version in our Accept header is 2.0 and returning PaintersSerializer if it is.
+
+        :param self: Represent the instance of the class
+        :return: The serializer class to use
+        :doc-author: Trelent
+        """
         print(self.request.headers)
         version = self.request.headers['Accept']
         print(version)
